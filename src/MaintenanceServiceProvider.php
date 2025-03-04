@@ -32,7 +32,7 @@ class MaintenanceServiceProvider extends ServiceProvider
         }
 
         $this->publishes([
-            __DIR__.'/config/maintenance.php' => config_path('maintenance.php'),
+            __DIR__.'/../config/maintenance.php' => config_path('maintenance.php'),
             __DIR__.'/../resources/views/maintenance' => resource_path('views/maintenance'),
         ], 'maintenance');
     }
