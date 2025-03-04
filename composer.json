@@ -1,0 +1,42 @@
+{
+    "name": "bagsiz/laravel-maintenance",
+    "description": "A simple maintenance mode package for Laravel applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Murat Bagsiz",
+            "email": "murat@bagsiz.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^8.0",
+        "illuminate/support": "^5.0|^6.0|^7.0|^8.0|^9.0|^10.0"
+    },
+    "require-dev": {
+        "orchestra/testbench": "^3.8|^4.0|^5.0|^6.0|^7.0|^8.0",
+        "phpunit/phpunit": "^7.0|^8.0|^9.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Bagsiz\\Maintenance\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Bagsiz\\Maintenance\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Bagsiz\\Maintenance\\MaintenanceServiceProvider"
+            ],
+            "aliases": {
+                "Maintenance": "Bagsiz\\Maintenance\\Facades\\Maintenance"
+            }
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+} 
