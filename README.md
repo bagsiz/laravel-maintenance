@@ -10,7 +10,7 @@ You can install the package via composer:
 composer require bagsiz/laravel-maintenance
 ```
 
-The package will automatically register its service provider.
+The package will automatically register its service provider and middleware.
 
 ## Configuration
 
@@ -58,17 +58,6 @@ Disable maintenance mode:
 php artisan maintenance off
 ```
 
-### Using the Middleware
-
-Add the middleware to your `app/Http/Kernel.php`:
-
-```php
-protected $middleware = [
-    // ...
-    \Bagsiz\Maintenance\Middleware\MaintenanceMode::class,
-];
-```
-
 ### Customizing the Maintenance View
 
 The package includes a default maintenance view that you can customize. After publishing the views, you can modify `resources/views/maintenance/maintenance.blade.php` to match your application's design.
@@ -87,7 +76,7 @@ The view includes:
 - Command-line interface for easy management
 - Configurable through config file
 - Customizable maintenance view
-- Middleware for automatic maintenance mode handling
+- Automatic middleware registration for both web and API routes
 - Simple and lightweight
 
 ## License

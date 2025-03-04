@@ -3,6 +3,7 @@
 namespace Bagsiz\Maintenance;
 
 use Illuminate\Support\ServiceProvider;
+use Bagsiz\Maintenance\Middleware\MaintenanceMode;
 
 class MaintenanceServiceProvider extends ServiceProvider
 {
@@ -35,5 +36,9 @@ class MaintenanceServiceProvider extends ServiceProvider
             __DIR__.'/../config/maintenance.php' => config_path('maintenance.php'),
             __DIR__.'/../resources/views/maintenance' => resource_path('views/maintenance'),
         ], 'maintenance');
+
+        // Register the middleware
+        $this->app['router']->pushMiddlewareToGroup('web', MaintenanceMode::class);
+        $this->app['router']->pushMiddlewareToGroup('api', MaintenanceMode::class);
     }
 } 
